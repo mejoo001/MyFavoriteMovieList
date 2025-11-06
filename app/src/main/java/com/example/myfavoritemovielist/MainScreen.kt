@@ -2,6 +2,7 @@ package com.example.myfavoritemovielist
 
 import android.os.Bundle
 import android.service.autofill.OnClickAction
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -45,6 +46,9 @@ class MainScreen : ComponentActivity() {
                 mutableStateOf("")
             }
 
+            var show by remember {
+                mutableStateOf("")
+            }
             MyFavoriteMovieListTheme {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -114,8 +118,17 @@ class MainScreen : ComponentActivity() {
                                         Text(text= "Add Movie")
                                     }
                                 }
-                            
 
+                            Spacer(modifier = Modifier.size(30.dp))
+                            Row {
+                                Button(
+                                    onClick = {
+
+                                    }
+                                ) {
+                                    Text(text= "Next")
+                                }
+                            }
 
                             var movieTitle =
                                 arrayOf("The Godfather", "The Dark Knight", "Pulp Fiction")
@@ -133,6 +146,8 @@ class MainScreen : ComponentActivity() {
                                 println("director ${directors[i]}")
                                 println("rating: ${rating[i]}")
                             }
+
+
                         }
                     }
                 }

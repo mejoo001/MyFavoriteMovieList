@@ -32,45 +32,46 @@ class DetailedViewScreen : ComponentActivity() {
         setContent {
             MyFavoriteMovieListTheme {
 
-                Column (
+                Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.fillMaxSize()
-                ){
+                ) {
                     Text(
                         text = "Detailed View Screen",
                         fontSize = 30.sp,
                         fontWeight = FontWeight.Black,
 
                         )
-                Column {  }
-                    Text(text = "The Godfather")
-                    Text(text = " Francis Ford Coppola")
-                    Text(text = "Rating - 5")
-                    Text(text = "A masterpiece of cinema.")
 
-                    Spacer(modifier = Modifier.size(30.dp))
-                    Text(text = "The Vow")
-                    Text(text = " Andrew Steyn")
-                    Text(text = "Rating - 4")
-                    Text(text = "A love that never ends.")
+                }
+                Text(text = "The Godfather")
+                Text(text = " Francis Ford Coppola")
+                Text(text = "Rating - 5")
+                Text(text = "A masterpiece of cinema.")
 
-                    Spacer(modifier = Modifier.size(30.dp))
-                    Text(text = "The Dark Knight")
-                    Text(text = " Ashley Hew")
-                    Text(text = "Rating - 2")
-                    Text(text = "A dark secret that broke many lives.")
+                Spacer(modifier = Modifier.size(30.dp))
+                Text(text = "The Vow")
+                Text(text = " Andrew Steyn")
+                Text(text = "Rating - 4")
+                Text(text = "A love that never ends.")
 
-                    Spacer(modifier = Modifier.size(30.dp))
-                    Text(text = "Pulp Fiction")
-                    Text(text = " Quentin Tarantino")
-                    Text(text = "Rating - 4")
-                    Text(text = "Quirky and captivating")
+                Spacer(modifier = Modifier.size(30.dp))
+                Text(text = "The Dark Knight")
+                Text(text = " Ashley Hew")
+                Text(text = "Rating - 2")
+                Text(text = "A dark secret that broke many lives.")
+
+                Spacer(modifier = Modifier.size(30.dp))
+                Text(text = "Pulp Fiction")
+                Text(text = " Quentin Tarantino")
+                Text(text = "Rating - 4")
+                Text(text = "Quirky and captivating")
 
 
                 Row {
                     Button(
                         onClick = {
-                            var start = Intent(this@DetailedViewScreen,MainScreen::class.java)
+                            var start = Intent(this@DetailedViewScreen, MainScreen::class.java)
                             startActivity(start)
 
                         }
@@ -78,12 +79,8 @@ class DetailedViewScreen : ComponentActivity() {
                         Text(text = "Back to Main Screen")
                     }
                 }
-                }
-
-
-                }
             }
         }
     }
-
+}
 
