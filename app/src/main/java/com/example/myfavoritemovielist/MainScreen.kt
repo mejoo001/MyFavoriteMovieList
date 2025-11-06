@@ -75,6 +75,20 @@ class MainScreen : ComponentActivity() {
                         ) {
                             Text("View Reviews")
                         }
+
+                        Spacer(modifier = Modifier.size(30.dp))
+                        Button(
+                            onClick = {
+                                moviereview = when (movietitle) {
+                                    "The Godfather" -> 5
+                                    "The Dark Knight" -> 3
+                                    "Pulp Fiction" -> 2
+                                    else -> "Invalid movie title!"
+                                }
+                            }
+                        ) {
+                            Text("Display average rating")
+                        }
                     }
 
                 //Error Handling
@@ -115,6 +129,7 @@ class MainScreen : ComponentActivity() {
                     var moviereview by remember {
                         mutableStateOf( "")
                     }
+
                 }
             }
 
