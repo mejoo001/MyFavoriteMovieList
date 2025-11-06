@@ -1,6 +1,7 @@
 package com.example.myfavoritemovielist
 
 import android.os.Bundle
+import android.service.autofill.OnClickAction
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -21,6 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -101,6 +103,18 @@ class MainScreen : ComponentActivity() {
                                     Text("Display average rating")
                                 }
                             }
+
+                                Spacer(modifier = Modifier.size(30.dp))
+                                Row {
+                                    Button(
+                                        onClick = {
+
+                                        }
+                                    ) {
+                                        Text(text= "Add Movie")
+                                    }
+                                }
+                            
 
 
                             var movieTitle =
