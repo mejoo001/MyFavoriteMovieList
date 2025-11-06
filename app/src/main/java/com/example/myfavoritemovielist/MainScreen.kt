@@ -65,74 +65,67 @@ class MainScreen : ComponentActivity() {
                                 MovieTitle = text
                             },
                             placeholder = {
-                                Text(text = "movieTitle")
+                                Text(text = "Movie Title")
                             }
                         )
-                    }
-                }
-                    Spacer(modifier = Modifier.size(30.dp))
-                     Row {
-                         Button(
-                        onClick = {
 
-                        }
+                        Spacer(modifier = Modifier.size(30.dp))
+                        Row {
+                            Button(
+                                onClick = {
+                                    movieReviews = when (MovieTitle) {
+                                        "The Godfather" -> "A masterpiece of cinema"
+                                        "The Dark Knight" -> "A beautiful love story"
+                                        "Pulp Fiction" -> "Quirky and captivating"
+                                        else -> "Invalid movie title!" //error handling feedback
+                                    }
+                                }
+                            ) {
+                                Text("View Reviews")
+                            }
 
-                    ) {
-                        Text("Add Movie")
-                    }
 
-                    Spacer(modifier = Modifier.size(30.dp))
-                         Button(
-                             onClick = {
-                            movieReviews = when (MovieTitle) {
-                                "The Godfather" -> "A masterpiece of cinema"
-                                "The Dark Knight" -> "A beautiful love story"
-                                "Pulp Fiction" -> "Quirky and captivating"
-                                else -> "Invalid movie title!" //error handling feedback
+                            Spacer(modifier = Modifier.size(30.dp))
+                            Row {
+                                Button(
+                                    onClick = {
+                                        movieReviews = when (MovieTitle) {
+                                            "The Godfather" -> 5
+                                            "The Dark Knight" -> 3
+                                            "Pulp Fiction" -> 2
+                                            else -> "Invalid movie title!" //error handling feedback
+                                        } as String
+
+                                    }
+                                ) {
+                                    Text("Display average rating")
+                                }
+                            }
+
+
+                            var movieTitle =
+                                arrayOf("The Godfather", "The Dark Knight", "Pulp Fiction")
+                            var directors =
+                                arrayOf("Francis Ford Coppola", "Andrew Steyn", "Quentin Taranino")
+                            var rating = arrayOf(5, 3, 4)
+                            var comments = arrayOf(
+                                "A masterpiece of cinema",
+                                "A beautiful love story",
+                                "Quirky and capivating"
+                            )
+
+                            for (i in movieTitle.indices) {
+                                println("movieTitle: ${movieTitle[i]}")
+                                println("director ${directors[i]}")
+                                println("rating: ${rating[i]}")
                             }
                         }
-                    ) {
-                        Text("View Reviews")
                     }
-
-                    Spacer(modifier = Modifier.size(30.dp))
-                         Button(
-                             onClick = {
-                            movieReviews = when (MovieTitle) {
-                                "The Godfather" -> 5
-                                "The Dark Knight" -> 3
-                                "Pulp Fiction" -> 2
-                                else -> "Invalid movie title!" //error handling feedback
-                            } as String
-
-                        }
-                    ) {
-                        Text("Display average rating")
-                    }
-                }
-
-
-                var movieTitle = arrayOf("The Godfather", "The Dark Knight", "Pulp Fiction")
-                var directors =
-                    arrayOf("Francis Ford Coppola", "Andrew Steyn", "Quentin Taranino")
-                var rating = arrayOf(5, 3, 4)
-                var comments = arrayOf(
-                    "A masterpiece of cinema",
-                    "A beautiful love story",
-                    "Quirky and capivating"
-                )
-
-                for (i in movieTitle.indices) {
-                    println("movieTitle: ${movieTitle[i]}")
-                    println("director ${directors[i]}")
-                    println("rating: ${rating[i]}")
                 }
             }
         }
     }
 }
-
-
 
 
 
