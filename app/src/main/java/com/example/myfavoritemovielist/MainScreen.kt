@@ -31,12 +31,18 @@ import com.example.myfavoritemovielist.ui.theme.MyFavoriteMovieListTheme
 
 
 class MainScreen : ComponentActivity() {
-
-    @Composable
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+
+            var MovieTitle by remember {
+                mutableStateOf("")
+            }
+            var movieReviews by remember {
+                mutableStateOf("")
+            }
+
             MyFavoriteMovieListTheme {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -47,93 +53,84 @@ class MainScreen : ComponentActivity() {
                         fontSize = 30.sp,
                         fontWeight = FontWeight.Black,
 
-                    )
+                        )
+                    Spacer(modifier = Modifier.size(30.dp))
+                    Column(
 
-
+                    ) {
+                        Text("Please enter the title of the movie")
+                        OutlinedTextField(
+                            value = MovieTitle,
+                            onValueChange = { text ->
+                                MovieTitle = text
+                            },
+                            placeholder = {
+                                Text(text = "movieTitle")
+                            }
+                        )
+                    }
                 }
                     Spacer(modifier = Modifier.size(30.dp))
-                    Row {
-                        Button(
-                            onClick = {
+                     Row {
+                         Button(
+                        onClick = {
 
-                            }
-
-                        ) {
-                            Text("Add Movie")
                         }
 
-                        Spacer(modifier = Modifier.size(30.dp))
-                        Button(
-                            onClick = {
-                                MovieReviews = when (movietitle) {
-                                    "The Godfather" -> "A masterpiece of cinema"
-                                    "The Dark Knight" -> "A beautiful love story"
-                                    "Pulp Fiction" -> "Quirky and captivating"
-                                else -> "Invalid movie title!"
-                                }
-                            }
-                        ) {
-                            Text("View Reviews")
-                        }
-
-                        Spacer(modifier = Modifier.size(30.dp))
-                        Button(
-                            onClick = {
-                                moviereview = when (movietitle) {
-                                    "The Godfather" -> 5
-                                    "The Dark Knight" -> 3
-                                    "Pulp Fiction" -> 2
-                                    else -> "Invalid movie title!"
-                                }
-                            }
-                        ) {
-                            Text("Display average rating")
-                        }
+                    ) {
+                        Text("Add Movie")
                     }
 
-                //Error Handling
-                var movietitleInput = findViewById<EditText>(R.id.movietitleInput)
-                var text = movietitleInput.text.toString()
+                    Spacer(modifier = Modifier.size(30.dp))
+                         Button(
+                             onClick = {
+                            movieReviews = when (MovieTitle) {
+                                "The Godfather" -> "A masterpiece of cinema"
+                                "The Dark Knight" -> "A beautiful love story"
+                                "Pulp Fiction" -> "Quirky and captivating"
+                                else -> "Invalid movie title!" //error handling feedback
+                            }
+                        }
+                    ) {
+                        Text("View Reviews")
+                    }
 
-                if(text.isEmpty()) {
-                    movietitleInput.error = "This field cannot be empty"
-                }else if (text.toIntorNull = null) {
-                    movietitleInput.error = "Pleaseenter a valid title"
-                }else {
-                        movietitleInput.error = null //clear error
+                    Spacer(modifier = Modifier.size(30.dp))
+                         Button(
+                             onClick = {
+                            movieReviews = when (MovieTitle) {
+                                "The Godfather" -> 5
+                                "The Dark Knight" -> 3
+                                "Pulp Fiction" -> 2
+                                else -> "Invalid movie title!" //error handling feedback
+                            } as String
+
+                        }
+                    ) {
+                        Text("Display average rating")
                     }
                 }
 
 
-                }
+                var movieTitle = arrayOf("The Godfather", "The Dark Knight", "Pulp Fiction")
+                var directors =
+                    arrayOf("Francis Ford Coppola", "Andrew Steyn", "Quentin Taranino")
+                var rating = arrayOf(5, 3, 4)
+                var comments = arrayOf(
+                    "A masterpiece of cinema",
+                    "A beautiful love story",
+                    "Quirky and capivating"
+                )
 
-                    var movieTitle = arrayOf("The Godfather", "The Dark Knight", "Pulp Fiction")
-                    var director =
-                        arrayOf("Francis Ford Coppola", "Andrew Steyn", "Quentin Taranino")
-                    var rating = arrayOf(5, 3, 4)
-                    var comments = arrayOf(
-                        "A masterpiece of cinema",
-                        "A beautiful love story",
-                        "Quirky and capivating"
-                    )
-
-                    for (i in movieTitle.indices) {
-                        println("movieTitle: ${movieTitle[i]}")
-                        println("director ${director[i]}")
-                        println("rating: ${rating[i]}")
-                    }
-
-                    var movietitle by remember {
-                        mutableStateOf("")
-                    }
-                    var moviereview by remember {
-                        mutableStateOf( "")
-                    }
-
+                for (i in movieTitle.indices) {
+                    println("movieTitle: ${movieTitle[i]}")
+                    println("director ${directors[i]}")
+                    println("rating: ${rating[i]}")
                 }
             }
-
-
+        }
+    }
+}
 
 
 

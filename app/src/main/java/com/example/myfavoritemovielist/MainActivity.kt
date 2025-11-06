@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize()
                 ){
                     Text(
-                        text = "Welcome to Favorite Movie List",
+                        text = "Welcome to Favorite Movie App",
                     fontSize = 30.sp,
                      fontWeight = FontWeight.Black,
 
